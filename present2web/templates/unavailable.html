@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div id="message">
+    <p class="message-text" id="link-message">Вам не доступен просмотр подарков</p>
+    <img id="message-img" src="{% static 'images/text.svg' %}"/>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<form action="{% url 'form'  form_uuid %}" method="post">
+            {% for question in questions %}
+                <div id="question">
+
+                    <p id="question-text">{{ question }}</p>
+                    <img id="question-img" src="{% static 'images/text.svg' %}"/>
+                    </div>
+                    <div id="answer">
+                        {% if question.type_answer == 0 %}
+                            <input name="{{ question.priority }}" type="text" {% if question.is_requried %}required{% endif %}>
+                        {% elif question.type_answer == 1 %}
+                            <textarea name="{{ question.priority }}" {% if question.is_requried %}required{% endif %}></textarea>
+                        {% elif question.type_answer == 2 %}
+                            {% for answer in question.answers.all %}
+
+                                <label><input name="{{ question.priority }}" type="radio" value ="{{ answer }}" {% if question.is_requried %}required{% endif %}> <span>{{ answer }}</span> </label>
+                            {% endfor %}
+                        {% elif question.type_answer == 3 %}
+                            {% for answer in question.answers.all %}
+                                <label><input name="{{ question.priority }}" type="checkbox" value="{{ answer }}"> <span>{{ answer }}</span> </label>
+                            {% endfor %}
+                        {% elif question.type_answer == 4 %}
+                            <input name="{{ question.priority }}" type="date" {% if question.is_requried %}required{% endif %}>
+                        {% endif %}
+                        </div>
+
+            {% endfor %}
+            <input type="submit" name="button" value="Получить подарки"/>
+</form>
+{% endblock %}

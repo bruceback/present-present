@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+            <div id="p-message">
+                <p class="p-message-text" id="category">Поищите подарок в классе "{{ category }}", так как {{ rules }}<br/>Подобранные подарки:</p>
+            <img id="p-message-img" src="{% static "images/text.svg" %}"/>
+            </div>
+            {% for presents in prices%}
+            {% for p in presents %}
+
+            <div id="present">
+                <img class="present-img" src="{{ p.image }}"/>
+                <a href="{{ p.url }}" class="present-link">{{ p.name }}</a>
+                <p class="present-price">{{ p.price }}</p>
+            </div>
+            {% endfor %}
+            {% endfor %}
+{% endblock %}

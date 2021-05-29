@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'Museo Cyrl 500';
+    src: url(fonts/MuseoCyrl500.otf);
+
+}
+
+@font-face {
+    font-family: "Nautilus Pompilius";
+    src: url(fonts/Nautilus.otf);
+}
+
+body {
+    background: #ACACFC;
+}
+
+textarea{
+    padding: 20px;
+    resize: vertical;
+}
+
+form {
+    font-family: 'Museo Cyrl 500';
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+    color: white;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#answer{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 140%;
+    width: 60%;
+}
+
+input[type='radio']{
+    margin: 3%;
+    transform:scale(1.6);
+    opacity:0.9;
+    cursor:pointer;
+}
+
+input[type='checkbox']{
+    margin: 3%;
+    transform:scale(1.6);
+    opacity:0.9;
+    cursor:pointer;
+}
+
+#link {
+    color: black;
+    padding: 20px;
+    border-radius: 40px;
+    background-color: white;
+    height: 2%;
+    font-family: 'Museo Cyrl 500';
+
+}
+
+#question{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+
+#question-text{
+    position: absolute;
+    color: white;
+    font-family: 'Museo Cyrl 500';
+    font-weight: bold;
+    font-size: 1.4rem;
+    position: absolute;
+
+}
+
+#question-img{
+    width: 140%;
+}
+
+#message{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    width: 70%;
+
+}
+
+#message-img {
+    width: 100%;
+}
+
+.message-text {
+    color: white;
+    font-family: 'Museo Cyrl 500';
+    font-weight: bold;
+    font-size: 1.7rem;
+    position: absolute;
+
+}
+
+
+#p-message{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    width: 70%;
+
+}
+
+#p-message-img {
+    width: 130%;
+}
+
+.p-message-text {
+    color: white;
+    font-family: 'Museo Cyrl 500';
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 140%;
+    position: absolute;
+
+}
+
+#link-message{
+    top:30%
+}
+
+#right {
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+}
+
+#left {
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+}
+
+#parrot {
+    position: fixed;
+    z-index: -1;
+    bottom: 50px;
+    left: 50px;
+    height: 75%;
+}
+
+#ribbon_left {
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    height: 20%;
+}
+
+#ribbon_right {
+    position: fixed;
+    z-index: -1;
+    bottom: -12px;
+    right: 0px;
+    height: 30%;
+}
+#button1 {
+    font-family: 'Museo Cyrl 500';
+    display: block;
+  /*width: 50%;
+  height: 50%;*/
+  color: white;
+  font-size: 200%;
+  text-decoration: none;
+  border-radius: 60px;
+  background: #8183F4;
+  transition: 0.2s;
+  padding: 3% 10%;
+
+}
+#button1:hover { background: #6363F1;   }
+#button1:active {
+  background: #4E54DE;
+  action: "https://www.w3docs.com/"
+}
+
+
+#button2 {
+    font-family: 'Museo Cyrl 500';
+  font-size: 200%;
+  color: white;
+  padding: 3% 8%;
+  text-decoration: none;
+  border-radius: 60px;
+  background: #F16E67;
+  transition: 0.2s;
+}
+#button2:hover { background: #B73E38;   }
+#button2:active {
+  background: #992D28;
+}
+
+
+#button{
+    margin-left: center;
+    margin-right: center;
+
+}
+
+#category{
+    top: 10%;
+}
+
+
+
+#present{
+    position: relative;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    background: white;
+    padding: 5%;
+    border-radius: 60px;
+    font-family: 'Museo Cyrl 500';
+    color: black;
+    gap: 1.5rem;
+}
+
+
+.present-img{
+    width: 50%;
+    height: 50%;
+}
+
+
+.predent-link{
+    margin: 5%;
+}
+
+
+
+h1{
+    margin: 3% 0 2% 0;
+    text-align: center;
+    font-family: "Nautilus Pompilius";
+    font-size: 950%;
+    font-weight: 100;
+    color: white;
+}
+
+main {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    gap: 3rem;
+}
+
+input[type='submit']{
+    font-size: 140%;
+    width: 50%;
+    margin: 5%;
+}

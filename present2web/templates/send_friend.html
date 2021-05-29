@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div id="message">
+    <p class="message-text" id="link-message">Скопируй и отправь эту ссылку другу</p>
+    <img id="message-img" src="{% static 'images/text.svg' %}"/>
+</div>
+<input id="link" type="text" size="70" value="{{ url_to_friend }}" disabled >
+{% endblock %}
