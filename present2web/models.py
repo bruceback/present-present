@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Color(models.Model):
-    name = models.CharField(max_length=100, unique=True, verbose_name="Название")
+    name = models.TextField(unique=True, verbose_name="Название")
 
     def __str__(self):
         return self.name
@@ -16,7 +16,7 @@ class Color(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True, verbose_name="Название")
+    name = models.TextField(unique=True, verbose_name="Название")
 
     def __str__(self):
         return self.name
@@ -28,7 +28,7 @@ class Category(models.Model):
 
 
 class Present(models.Model):
-    name = models.CharField(max_length=100, unique=True, verbose_name="Название")
+    name = models.TextField(unique=True, verbose_name="Название")
     category = models.ForeignKey(
         Category,
         on_delete=models.PROTECT,
@@ -62,8 +62,8 @@ class Present(models.Model):
 
 
 class Answer(models.Model):
-    formulation = models.CharField(
-        max_length=200, unique=True, verbose_name="Формулировка"
+    formulation = models.TextField(
+        unique=True, verbose_name="Формулировка"
     )
 
     def __str__(self):
@@ -83,8 +83,8 @@ class Question(models.Model):
         (3, "Несколько из списка"),
         (4, "Дата"),
     )
-    formulation = models.CharField(
-        max_length=200, unique=True, verbose_name="Формулировка"
+    formulation = models.TextField(
+        unique=True, verbose_name="Формулировка"
     )
     priority = models.IntegerField(verbose_name="Приоритет")
     type_answer = models.IntegerField(
@@ -117,8 +117,8 @@ class TempUrl(models.Model):
     presents_uuid = models.UUIDField(
         default=uuid.uuid4, verbose_name="Уникальный id для подарков"
     )
-    rules = models.CharField(
-        max_length=300, blank=True, null=True, verbose_name="Правило вывода"
+    rules = models.TextField(
+        blank=True, null=True, verbose_name="Правило вывода"
     )
     category = models.ForeignKey(
         Category,
