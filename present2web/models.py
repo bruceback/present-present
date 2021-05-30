@@ -44,9 +44,9 @@ class Present(models.Model):
         verbose_name="Цвет",
     )
     price = MoneyField(max_digits=8, decimal_places=2, default_currency="RUB")
-    url = models.URLField(max_length=1000, verbose_name="Ссылка на подарок")
-    image = models.URLField(
-        max_length=1000, null=True, blank=True, verbose_name="Ссылка на изображение"
+    url = models.TextField(verbose_name="Ссылка на подарок")
+    image = models.TextField(
+        null=True, blank=True, verbose_name="Ссылка на изображение"
     )
     change_date = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
 
