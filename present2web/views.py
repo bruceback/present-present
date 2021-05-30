@@ -47,17 +47,19 @@ def form(request, form_uuid):
                     data[key] = lst
                 else:
                     data[key] = value
-        # r = requests.post('https://8aaf44bfa5c4.ngrok.io/predict', json=data)
         temp_url = TempUrl.objects.get(questionnaire_uuid=form_uuid)
-        # r = r.json()
-        r = {
-            "code": 0,
-            "class": 1,
-            "rules": "твой кореш не хотел шмотки, но мы это не учитываем!!!",
-        }
+
+        try:
+            r = requests.post("https://b38bb539dbeb.ngrok.io/predict", json=data)
+            r = r.json()
+        except Exception:
+            return render(request, "error.html")
+
         if r["code"] == 0:
             temp_url.category = Category.objects.get(pk=(r["class"] + 1))
             temp_url.rules = r["rules"]
+        else:
+            return render(request, "error.html")
         temp_url.save()
         ctx = {
             "url_to_friend": request.build_absolute_uri(
@@ -82,10 +84,15 @@ def presents(request, form_uuid):
     presents_5000 = Present.objects.filter(
         category=temp_url.category, price__gt=5000
     ).order_by("?")[:4]
+    reasons = sorted(
+        [r.split("THEN target prob:") for r in temp_url.rules.split("\n")],
+        key=lambda x: float(x[1]),
+        reverse=True,
+    )
     ctx = {
         "category": temp_url.category,
         "prices": [presents_2000, presents_2001_5000, presents_5000],
-        "rules": temp_url.rules,
+        "rules": f"{reasons[0][0]}",
     }
     return render(request, "presents.html", ctx)
 
