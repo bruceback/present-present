@@ -54,7 +54,6 @@ def form(request, form_uuid):
             r = r.json()
         except Exception:
             return render(request, "error.html")
-
         if r["code"] == 0:
             temp_url.category = Category.objects.get(pk=(r["class"] + 1))
             temp_url.rules = r["rules"].lower()
@@ -85,7 +84,7 @@ def presents(request, form_uuid):
         category=temp_url.category, price__gt=5000
     ).order_by("?")[:4]
     reasons = sorted(
-        [r.split("THEN target prob:") for r in temp_url.rules.split("\n")],
+        [r.split("then target prob:") for r in temp_url.rules.split("\n")],
         key=lambda x: float(x[1]),
         reverse=True,
     )
