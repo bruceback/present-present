@@ -57,7 +57,7 @@ def form(request, form_uuid):
 
         if r["code"] == 0:
             temp_url.category = Category.objects.get(pk=(r["class"] + 1))
-            temp_url.rules = r["rules"]
+            temp_url.rules = r["rules"].lower()
         else:
             return render(request, "error.html")
         temp_url.save()
