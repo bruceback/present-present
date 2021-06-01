@@ -54,6 +54,7 @@ def form(request, form_uuid):
             r = r.json()
         except Exception:
             return render(request, "error.html")
+
         if r["code"] == 0:
             temp_url.category = Category.objects.get(pk=(r["class"] + 1))
             temp_url.rules = r["rules"].lower()
