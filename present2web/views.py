@@ -50,7 +50,7 @@ def form(request, form_uuid):
         temp_url = TempUrl.objects.get(questionnaire_uuid=form_uuid)
 
         try:
-            r = requests.post("https://b38bb539dbeb.ngrok.io/predict", json=data)
+            r = requests.post("https://30eceac6dbd2.ngrok.io/predict", json=data)
             r = r.json()
         except Exception:
             return render(request, "error.html")
